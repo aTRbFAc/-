@@ -32,4 +32,4 @@
 -本项目代码完全开源
 -本项目仅供学习交流使用，禁止用于商业用途，禁止直接重新上架到应用商店（如需商用请联系作者）
 联系方式：QQ：1848548731 邮箱：1848548731@qq.com 微信：aTRbFAc
-开源地址：https://github.com/aTRbFAc/Push-box-text.git
+开源地址：https://github.com/aTRbFAc/Push-box-game-text-version.git
