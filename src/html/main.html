@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推箱子</title>
+    <link rel="stylesheet" href="/src/CSS/styles.css">
+    <link rel="stylesheet" href="/src/CSS/name.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="background-image: url(/src/files/images/background.png); background-repeat: no-repeat; background-size: cover; border: 0px solid rgb(0, 152, 220);">
+    <!-- 实名认证弹窗 -->
+    <div id="mask" class="auth-mask">
+        <div class="auth-modal">
+            <h2>未成年人防沉迷认证 <i class="fas fa-lock"></i></h2>
+            <div class="form-group">
+                <input type="text" id="name" placeholder="请输入真实姓名">
+            </div>
+            <div class="form-group">
+                <input type="text" id="idcard" placeholder="请输入身份证号码">
+            </div>
+            <div id="errorMsg" class="error-msg"></div>
+            <button onclick="doValidation()" class="auth-btn">
+                <i class="fas fa-fingerprint"></i>
+                立即认证
+            </button>
+            <p class="notice">根据国家相关规定，需进行实名认证</p>
+        </div>
+    </div>
+    <div id="home" class="page active">
+        <h1 class="title">推箱子</h1>
+        <button class="btn" onclick="window.location.href='jingdian.html'">经典模式</button>
+        <button class="btn" onclick="window.location.href='yinxing.html'">隐形模式</button>
+        <button class="btn" onclick="window.location.href='miwu.html'">迷雾模式</button>
+        <button class="btn" onclick="window.location.href='About.html'">关于</button>
+    </div>
+    <script src="/src/GameJS/name.js"></script>
+    <script>
+    if (webapp.bestow()) {
+    } else {
+        alert('为了记录防沉迷认证信息，请给予存储权限！');
+        webapp.rights();
+    }
+    </script>
+</body>
+</html>

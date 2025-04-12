@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>迷雾模式</title>
+    <link rel="stylesheet" href="/src/CSS/styles.css">
+</head>
+
+<body style="background-image: url(&quot;/src/files/images/background.png&quot;); background-repeat: no-repeat; background-size: cover; border: 0px solid rgb(0, 152, 220);">
+    <!-- 主页 -->
+    <div id="home" class="page active">
+        <h1 class="title">迷雾模式</h1>
+        <button class="btn" onclick="showPage('levels')">开始游戏</button>
+        <button class="btn" onclick="alert('使用方向键移动，每次移动将会显示出2格范围的视野，并把箱子推到目标位置')">游戏说明</button>
+        <button class="btn" onclick="window.location.href='main.html'">返回主页</button>
+    </div>
+    <!-- 关卡选择 -->
+    <div id="levels" class="page">
+        <h2 style="text-align: center">选择关卡</h2>
+        <div id="level-list"></div>
+        <button class="btn" onclick="showPage('home')">返回主页</button>
+    </div>
+    <!-- 游戏页 -->
+    <div id="game" class="page">
+        <div class="game-container" id="game-container"></div>
+        <div id="controls">
+            <div class="btns">
+                <button class="control-btn" ontouchstart="move(0, -1)">↑</button>
+                <button class="control-btn" ontouchstart="move(-1, 0)">←</button>
+                <button class="control-btn" ontouchstart="move(0, 1)">↓</button>
+                <button class="control-btn" ontouchstart="move(1, 0)">→</button>
+            </div>
+        </div>
+        <br>
+        <div id="Control">
+            <button class="controls" onclick="undo()">撤销</button>
+            <button class="controls" onclick="resetLevel()">重置关卡</button>
+            <button class="controls" onclick="showPage('levels')">选择关卡</button>
+        </div>
+    </div>
+    <script src="/src/GameJS/levels.js"></script>
+    <script src="/src/GameJS/game3.js"></script>
+</body>
+
+</html>

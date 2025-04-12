@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>推箱子加载页</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: #000;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body style="background-image: url(&quot;/src/files/images/1_.png&quot;); background-repeat: no-repeat; background-size: cover; border: 0px solid rgb(0, 152, 220);">
+    <script src="https:你的服务器地址/版本号.js">
+    //版本号.js内容
+    //const version = '1.1.5';
+    //window.currentVersion = version;
+    </script>
+    <script>
+        // 获取远程版本号
+        const remoteVersion = window.currentVersion;
+        // 本地版本号
+        const localVersion = "1.1.5" // 这是你的本地版本号
+            // 比对版本号
+        if (remoteVersion > localVersion) {
+            if (window.confirm('当前版本过低，请更新软件！')) {
+                webapp.browse('https://软件更新地址');
+            }
+        }
+        setTimeout(() => {
+            window.location.href = 'main.html';
+        }, 250);
+    </script>
+</body>
+
+</html>

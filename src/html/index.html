@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>隐私政策弹窗</title>
+    <style>
+        /* 全局样式 */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            /* 灰色背景 */
+        }
+        /* 弹窗样式 */
+        
+        .modal {
+            display: none;
+            /* 默认隐藏 */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* 半透明背景 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .link{
+            color: blue;
+        }
+        .modal-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            width: 90%;
+        }
+        
+        .modal-content p {
+                text-align: center;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .modal-buttons button {
+            margin: 5px 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .modal-buttons button:first-child {
+            width: 100px;
+            background-color: #4CAF50;
+            /* 绿色按钮 */
+            color: white;
+        }
+        
+        .modal-buttons button:last-child {
+            width: 100px;
+            background-color: #f44336;
+            /* 红色按钮 */
+            color: white;
+        }
+        .gameContent{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: #000;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body style="background-image: url(&quot;/src/files/images/1_.png&quot;); background-repeat: no-repeat; background-size: cover; border: 0px solid rgb(0, 152, 220);">
+    <!-- 弹窗内容 -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <p>请同意《<span class="link" onclick="openPrivacyPolicy()">隐私政策</span>》后进入游戏。</p>
+            <div class="modal-buttons">
+                <button onclick="agree()">同意</button>
+                <button onclick="disagree()">不同意</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    webapp.renew(false);
+    webapp.circle(false);
+    // 检查用户是否已经同意过隐私政策
+        function checkAgreement() {
+            const agreed = localStorage.getItem('privacyAgreed');
+            if (agreed === 'true') {
+                // 如果已经同意，直接显示游戏内容
+            window.location.href = 'in.html';
+            } else {
+                // 如果未同意，显示弹窗
+                document.getElementById('privacyModal');
+            }
+        }
+
+        // 页面加载完成后检查用户选择
+        window.onload = checkAgreement;
+        // 打开隐私政策链接
+        function openPrivacyPolicy() {
+            window.open('https://隐私政策链接', '_blank');
+            //此处可以替换为html文件，也可以替换为本地html文件
+        }
+
+        // 同意隐私政策
+        function agree() {
+            // 保存用户选择到 localStorage
+            localStorage.setItem('privacyAgreed', 'true');
+            window.location.href = 'in.html';
+        }
+
+        // 不同意隐私政策
+        function disagree() {
+            alert('您需要同意隐私政策才能进入游戏。');
+        }
+    </script>
+</body>
+
+</html>
