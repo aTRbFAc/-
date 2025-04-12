@@ -44,7 +44,7 @@
             // 比对版本号
         if (remoteVersion > localVersion) {
             if (window.confirm('当前版本过低，请更新软件！')) {
-                webapp.browse('https://软件更新地址');
+                window.location.href = "https://软件更新地址";
             }
         }
         setTimeout(() => {
